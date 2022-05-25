@@ -2,6 +2,7 @@ name: Generate JSON from Planet RSS and Deploy
 on:
   schedule:
     - cron: '34 2 * * *'
+  workflow_dispatch:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
