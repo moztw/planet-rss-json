@@ -1,0 +1,29 @@
+name: Generate JSON from Planet RSS and Deploy
+on:
+  schedule:
+    - cron: '34 2 * * *'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Install 🔧
+        run: |
+          npm install
+
+      - name: Generate JSON ⚙️
+        run: |
+          mkdir build
+          node script.js > build/planet.json
+
+      - name: Deploy 🚀
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
