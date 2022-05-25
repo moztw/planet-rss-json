@@ -15,10 +15,10 @@ You can run it manually by pushing the run button in Actions Tab.
 
 ## Usage
 
-With CORS headers:
+- GitHub Raw:
 
 https://raw.githubusercontent.com/moztw/planet-rss-json/gh-pages/planet.json
 
-Without CORS headers:
+- GitHub Pages:
 
 https://moztw.github.io/planet-rss-json/planet.json
